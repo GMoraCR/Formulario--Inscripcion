@@ -84,10 +84,10 @@
     <script>
        const form = document.getElementById('inscripcion-form');
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        form.addEventListener('submit', async (e) => {
+        e.preventDefault();
 
-    let data = {
+        let data = {
         nombre: form.nombre.value,
         email: form.email.value,
         telefono: form.telefono.value,
@@ -100,7 +100,7 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         });
-
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         // Intentar leer la respuesta si existe
         const result = await response.json();
 
